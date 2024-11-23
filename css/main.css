@@ -1,0 +1,395 @@
+body {
+    margin: 0;
+}
+
+:root {
+    --default-padding: 1.5rem;
+    font-family: "Ubuntu", sans-serif;
+    --color-white: #fff;
+    --color-gray: #ccc;
+    --color-red: #d50000;
+    --color-green: rgb(49, 140, 49);
+    --color-gold: goldenrod;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+}
+
+/* start custom classes */
+
+.container {
+    margin: auto;
+    padding: 0 calc(var(--default-padding) / 2);
+    animation-name: pageLoad;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media(min-width : 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media(min-width : 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media(min-width : 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media(min-width : 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.d-block {
+    display: block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row>* {
+    width: 100%;
+}
+
+.g-3 {
+    margin: calc(var(--default-padding) * -1) calc(var(--default-padding) / -2) 0;
+}
+
+.g-3>* {
+    padding: 0 calc(var(--default-padding) / 2);
+    margin-top: var(--default-padding);
+}
+
+@media(min-width : 768px) {
+    .row>* {
+        width: 50%;
+    }
+}
+
+@media(min-width : 1024px) {
+    .row>* {
+        width: calc(100% / 3);
+    }
+}
+
+/* end custom classes */
+
+.page {
+    min-height: 100vh;
+    padding: 3rem 0;
+    background-image: linear-gradient(120deg, rgb(29, 29, 69), rgb(69, 117, 159));
+    color: var(--color-white);
+}
+
+.page ul {
+    margin: auto;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.page ul li {
+    margin-bottom: 0.5rem;
+}
+
+.page .add span,
+.page .remove span,
+.page .edit span {
+    background-color: var(--color-green);
+    padding: 1rem var(--default-padding);
+    border-radius: 8px;
+    margin: 0 auto 1rem;
+    animation-name: alert;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+.page .remove span{
+    background-color: var(--color-red);
+}
+
+.page .edit span{
+    background-color: var(--color-gold);
+}
+
+@media(min-width : 640px) {
+    .page .add span,
+    .page .remove span,
+    .page .edit span {
+        width: 60%;
+    }
+}
+
+@keyframes alert{
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* start form */
+
+.page form {
+    padding: var(--default-padding) 0;
+}
+
+.page form>div {
+    margin-bottom: var(--default-padding);
+}
+
+.page form span {
+    color: #d50000;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.page .container>p {
+    color: var(--color-gray);
+    line-height: 1.5rem;
+}
+
+.page form label {
+    margin: 0 auto 0.5rem;
+}
+
+.page form input,
+.page form textarea {
+    min-width: 100%;
+    border: 3px solid #1e272e;
+    outline: none;
+    padding: 0.5rem calc(var(--default-padding) /2);
+    border-radius: 4px;
+    background-color: var(--color-gray);
+    box-shadow: 0 0 5px 0px var(--color-gray);
+}
+
+.page form button {
+    border: none;
+    padding: 0.5rem calc(var(--default-padding) /2);
+    border-radius: 4px;
+    margin: auto;
+    font-weight: bold;
+    background-color: var(--color-gray);
+    transition: 0.3s;
+    border: 2px solid;
+    border-color: transparent;
+}
+
+.page form button:hover {
+    transform: scale(1.1);
+    background-color: #777;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+/* end form */
+
+/* start tasks */
+
+.page .tasks .inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-gray);
+    color: #000;
+    padding: var(--default-padding);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.page .tasks .inner.new {
+    animation-name: innerShow;
+    animation-duration: 0.5s;
+}
+
+@keyframes innerShow {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.page .tasks .inner:hover {
+    background-color: #1e272e;
+    color: var(--color-white);
+    transform: scale(1.1);
+    border-radius: 16px;
+    box-shadow: 0 0 20px 0 #cccccc4a;
+    ;
+}
+
+.page .inner span {
+    margin: 0 0 1rem auto;
+    transition: 0.3s;
+}
+
+.page .tasks .inner button,
+.modal-editing button {
+    border: none;
+    padding: 0.5rem calc(var(--default-padding) /2);
+    border-radius: 4px;
+    color: var(--color-white);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.page .tasks .inner button:nth-of-type(1) {
+    background-color: var(--color-red);
+    margin-right: 0.5rem;
+}
+
+.page .tasks .inner button:nth-of-type(1):hover {
+    background-color: rgb(124, 5, 5)
+}
+
+.page .tasks .inner button:nth-of-type(2),
+.modal-editing button {
+    background-color: var(--color-gold);
+    margin-right: 0.5rem;
+}
+
+.page .tasks .inner button:nth-of-type(2):hover {
+    background-color: rgb(176, 134, 28)
+}
+
+.page .tasks .inner button:nth-of-type(3) {
+    background-color: var(--color-green);
+}
+
+.page .tasks .inner button:nth-of-type(3):hover {
+    background-color: rgb(34, 87, 34);
+}
+
+/* end tasks */
+
+
+/* start modal editing */
+
+.modal-editing {
+    width: 100%;
+    height: 100%;
+    background-color: #1f2028f0;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.modal-editing.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-editing .container {
+    height: 100%;
+}
+
+.modal-editing .container>div {
+    width: 100%;
+}
+
+.modal-editing span {
+    padding: 1rem;
+    width: fit-content;
+    display: block;
+    margin: 1rem 1rem 1rem auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-editing span:hover {
+    transform: scale(1.5);
+}
+
+/* end modal editing */
